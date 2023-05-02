@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
+const axios = require('axios');
+const jwt = require('jsonwebtoken');
+const fs = require('fs');
 //const vote = require('./vote')
 let countData = { countA: 0, countB: 0 };
 
@@ -92,6 +94,42 @@ app.post('/api/voteB', (req, res) => {
     }
     
 });
+
+const password = "1234";
+
+// Define an endpoint to authenticate the admin using a public key
+app.post('/admin/authenticate', function(req, res) {
+    const publicKey = req.body.key;
+    if (publicKey === password) {
+      // Create a JWT containing the public key
+      //const token = jwt.sign({ publicKey }, privateKey, { expiresIn: '1h' });
+      //res.json({ token });
+        res.status(200).send('Authenticated');
+    } else {
+      res.sendStatus(401);
+    }
+  });
+
+// Define middleware to verify JWTs
+function verifyToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+  
+    if (token) {
+      // Verify the JWT using the secret key
+      jwt.verify(token, secretKey, function(err, decoded) {
+        if (err) {
+          return res.sendStatus(403);
+        }
+  
+        req.user = decoded;
+        next();
+      });
+    } 
+    else {
+      res.sendStatus(401);
+    }
+}
 
 // Serve static files from the 'dist' directory
 app.use(express.static('public'))
