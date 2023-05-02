@@ -18,12 +18,9 @@ const app = Vue.createApp({
       this.countB++
     },
     reportClicks() {
-      // make API call to report the click counts for each button in the last second
-      // this is just a placeholder for the actual API call
       if (this.countA != 0) {
-        //call API report a click
         const dataA = { "number_of_count": this.countA };
-        fetch('http://localhost:3000/voteA', {
+        fetch('/api/voteA', {
           method: 'POST',
           body: JSON.stringify(dataA),
           headers: {
@@ -42,9 +39,8 @@ const app = Vue.createApp({
       }
 
       if (this.countB != 0) {
-        //call API report b click
         const dataB = { "number_of_count": this.countB };
-        fetch('http://localhost:3000/voteB', {
+        fetch('/api/voteB', {
           method: 'POST',
           body: JSON.stringify(dataB),
           headers: {
@@ -56,8 +52,8 @@ const app = Vue.createApp({
           .catch(error => console.error(error));
         console.log(`Button B clicks in last second: ${this.countB}`);
       }
-      //call API for total score
-      fetch('http://localhost:3000/score')
+
+      fetch('/api/score')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -78,5 +74,4 @@ const app = Vue.createApp({
     }
   }
 })
-
 app.mount('#app')
