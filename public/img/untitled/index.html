@@ -14,13 +14,16 @@
           </div>
           <div v-else>
             <div>
+              <label>Candidate A</label>
               <select id="candidateA" v-model="candidateA">
-                <option v-for="candidate in candidateLists" :value="candidate.value">{{ candidaye.label }}</option>
+                <option v-for="candidate in candidateLists" :value="candidate.name">{{ candidate.name }}</option>
               </select>
             </div>
             <div>
-              <label for="candidateA">Candidate A:</label>
-              <input id="candidateA" type="" v-model="candidateA">
+              <label>Candidate B</label>
+              <select id="candidateB" v-model="candidateB">
+                <option v-for="candidate in candidateLists" :value="candidate.name">{{ candidate.name }}</option>
+              </select>
             </div>
             <button v-on:click="updateOptions">submit</button>
             <button v-on:click="authenticated = false">Logout</button>

@@ -37,15 +37,6 @@ function updateOptionsData() {
     options = JSON.parse(fs.readFileSync('./option.json', 'utf-8'));
 }
 
-// function updateCountData() {
-//     Promise.all([
-//         ChoiceA.countDocuments(),
-//         ChoiceB.countDocuments(),
-//     ]).then(([countA, countB]) => {
-//         countData.countA = countA;
-//         countData.countB = countB;
-//     });
-// }
 
 function updateCountData() {
     if (parseInt(options.optionA) === 0 || parseInt(options.optionB) === 0) {
@@ -109,7 +100,7 @@ function updateCountData() {
 updateCountData();
 updateOptionsData();
 setInterval(updateCountData, 1000);
-setInterval(updateOptionsData, 1000);
+setInterval(updateOptionsData, 10000);
 
 app.get('/api/score', (req, res) => {
     res.status(200).send(countData);
@@ -131,7 +122,7 @@ app.post('/admin/authenticate', function(req, res) {
       // Create a JWT containing the public key
       const token = jwt.sign('admin', credentials.privatetKey);
       res.json({ token: token });
-    res.status(200).send('Authenticated');
+    //res.status(200).send('Authenticated');
     } else {
       res.sendStatus(401);
     }
@@ -334,7 +325,6 @@ app.post('/api/voteF', (req, res) => {
         res.status(200).send('ขอบคุณที่มาร่วมสนุกนะค่ะ');
     }
 });
-
 
 /* ======================================================================================================================================= */
 

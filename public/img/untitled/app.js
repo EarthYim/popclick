@@ -3,19 +3,19 @@ const app = Vue.createApp({
     return {
       authenticated: false, 
       publicKey: '',
-      optionA: 0,
-      optionB: 1,
+      optionA: "0",
+      optionB: "1",
+      candidateA: '',
+      candidateBB: '',
       candidateLists: [],
       token: '',
     }
   },
   mounted() {
-    fetch('/cadnidate.json')
+    fetch('/api/candidateInfo')
       .then(response => response.json())
       .then(data => {
         this.candidateLists = data;
-        this.optionA = data[0];
-        this.optionB = data[1];
       })
   },
   methods: {
@@ -46,7 +46,9 @@ const app = Vue.createApp({
       }
     },
     updateOptions() {
-      console.log(this.candidateLists.a);
+      this.candidateId();
+      console.log(this.optionA);
+      console.log(this.optionB);  
       fetch('/admin/updateOptions', {
         method: 'PUT',
         headers: {
@@ -55,6 +57,12 @@ const app = Vue.createApp({
           },
         body: JSON.stringify({ "optionA": this.optionA, "optionB": this.optionB })
       });
+    },
+    candidateId() {
+      const objectA = this.candidateLists.find(candidate => candidate.name === this.candidateA);
+      const objectB = this.candidateLists.find(candidate => candidate.name === this.candidateB);
+      this.optionA = objectA.id;
+      this.optionB = objectB.id;
     }
   }
 });
