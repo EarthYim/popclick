@@ -5,8 +5,8 @@ const app = Vue.createApp({
       countB: 0,
       totalCountA: 0,
       totalCountB: 0,
-      optionA_ID: 0,
-      optionB_ID: 1,
+      optionA_ID: "0",
+      optionB_ID: "1",
       optionA_Name: '',
       optionB_Name: '',
       apiA: '',
@@ -15,25 +15,25 @@ const app = Vue.createApp({
   },
   mounted() {
     setInterval(this.reportClicks, 1000);
-    setInterval(this.updateOptions, 10000); // change to 10000
+    setInterval(this.updateOptions, 1000); // change to 10000
+    fetch('/api/optionInfo', {
+      method: 'GET'
+    }) 
+    .then(response => response.json())
+    .then(data => {
+      this.optionA_ID = data.optionA;
+      this.optionB_ID = data.optionB;
+    })
     fetch('/api/candidateInfo', {
       method: 'GET'
     })
       .then(response => response.json())
       .then(data => {
         this.optionA_Name = data[this.optionA_ID].name;
-        this.apiA = data[this.optionA_ID].api;
+        this.apiA = data[parseInt(this.optionA_ID)].api;
         this.optionB_Name = data[this.optionB_ID].name;
-        this.apiB = data[this.optionB_ID].api;
+        this.apiB = data[parseInt(this.optionB_ID)].api;
       })
-    fetch('/api/optionInfo', {
-      method: 'GET'
-    }) 
-    .then(response => response.json())
-    .then(data => {
-      this.optionA_ID = parseInt(data.optionA);
-      this.optionB_ID = parseInt(data.optionB);
-    })
   },
   methods: {
     incrementCountA() {
@@ -45,6 +45,7 @@ const app = Vue.createApp({
     reportClicks() {
       if (this.countA != 0) {
         const dataA = { "number_of_count": this.countA };
+        console.log(this.optionB_ID)
         fetch(this.apiA, {
           method: 'POST',
           body: JSON.stringify(dataA),
@@ -84,10 +85,10 @@ const app = Vue.createApp({
         return response.json();
       })
       .then(data => {
-        console.log(`Count A: ${data.countA}`);
-        this.totalCountA = data.countA;
-        console.log(`Count B: ${data.countB}`);
-        this.totalCountB = data.countB;
+        //console.log(`Count A: ${data[this.optionA_ID]}`);
+        this.totalCountA = data[this.optionA_ID];
+        //console.log(`Count B: ${data[this.optionB_ID]}`);
+        this.totalCountB = data[this.optionB_ID];
       })
       .catch(error => {
         console.error(error);
@@ -95,17 +96,28 @@ const app = Vue.createApp({
       this.countA = 0;
       this.countB = 0;
     },
+    updateCandidate() {
+      fetch('/api/candidateInfo', {
+        method: 'GET'
+      })
+        .then(response => response.json())
+        .then(data => {
+          this.optionA_Name = data[this.optionA_ID].name;
+          this.apiA = data[parseInt(this.optionA_ID)].api;
+          this.optionB_Name = data[this.optionB_ID].name;
+          this.apiB = data[parseInt(this.optionB_ID)].api;
+        })
+    },
     updateOptions() {
       fetch('/api/optionInfo', {
         method: 'GET'
       }) 
       .then(response => response.json())
       .then(data => {
-        this.optionA_ID = parseInt(data.optionA);
-        this.optionB_ID = parseInt(data.optionB);
-        console.log(`Option A ID: ${this.optionA_ID}`);
-        console.log(`Option B ID: ${this.optionB_ID}`);
+        this.optionA_ID = data.optionA;
+        this.optionB_ID = data.optionB;
       })
+      this.updateCandidate();
     }
   }
 })

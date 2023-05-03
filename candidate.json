@@ -2,42 +2,48 @@
     {
         "id": "0",
         "name": "Test A",
-        "api": "/api/voteA",
+        "api": "/api/testA",
         "img": "/img/testA.jpg",
         "color": "red"
     },
     {
         "id": "1",
         "name": "Test B",
-        "api": "/api/voteB",
+        "api": "/api/testB",
         "img": "/img/testB.jpg",
         "color": "blue"
     },
     {
         "id": "2",
-        "name": "Candidate A"
+        "name": "Candidate A",
+        "api": "/api/voteA"
     },
     {
         "id": "3",
-        "name": "Candidate B"
+        "name": "Candidate B",
+        "api": "/api/voteB"
     },
     {
         "id": "4",
-        "name": "Candidate C"
+        "name": "Candidate C",
+        "api": "/api/voteC"
     },
 
     {
         "id": "5",
-        "name": "Candidate D"
+        "name": "Candidate D",
+        "api": "/api/voteD"
     },
 
     {
         "id": "6",
-        "name": "Candidate E"
+        "name": "Candidate E",
+        "api": "/api/voteE"
     },
 
     {
         "id": "7",
-        "name": "Candidate F"
+        "name": "Candidate F",
+        "api": "/api/voteF"
     }
 ]

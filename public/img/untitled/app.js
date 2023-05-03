@@ -48,7 +48,7 @@ const app = Vue.createApp({
     updateOptions() {
       console.log(this.candidateLists.a);
       fetch('/admin/updateOptions', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${this.token}`
