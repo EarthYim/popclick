@@ -5,6 +5,8 @@ const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 //const vote = require('./vote')
+const candidateInfo = require('./candidate.json');
+const options = require('./option.json');
 let countData = { countA: 0, countB: 0 };
 
 const app = express();
@@ -45,6 +47,14 @@ setInterval(updateCountData, 1000);
 app.get('/api/score', (req, res) => {
     res.status(200).send(countData);
 });
+
+app.get('/api/candidateInfo', (req, res) => {
+    res.json(candidateInfo);
+})
+
+app.get('/api/optionInfo', (req, res) => {
+    res.json(options);
+})
 
 app.post('/api/voteA', (req, res) => {
     const data = req.body;
@@ -96,15 +106,16 @@ app.post('/api/voteB', (req, res) => {
 });
 
 const password = "1234";
+const privateKey = "myscretissafe"
 
-// Define an endpoint to authenticate the admin using a public key
+//Define an endpoint to authenticate the admin using a public key
 app.post('/admin/authenticate', function(req, res) {
     const publicKey = req.body.key;
     if (publicKey === password) {
       // Create a JWT containing the public key
-      //const token = jwt.sign({ publicKey }, privateKey, { expiresIn: '1h' });
-      //res.json({ token });
-        res.status(200).send('Authenticated');
+      const token = jwt.sign('admin', privateKey);
+      res.json({ token: token });
+    res.status(200).send('Authenticated');
     } else {
       res.sendStatus(401);
     }
@@ -114,14 +125,12 @@ app.post('/admin/authenticate', function(req, res) {
 function verifyToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
-  
     if (token) {
       // Verify the JWT using the secret key
-      jwt.verify(token, secretKey, function(err, decoded) {
+      jwt.verify(token, privateKey, function(err, decoded) {
         if (err) {
           return res.sendStatus(403);
-        }
-  
+        }   
         req.user = decoded;
         next();
       });
@@ -130,6 +139,10 @@ function verifyToken(req, res, next) {
       res.sendStatus(401);
     }
 }
+
+app.post('/admin/updateOptions', verifyToken, (req, res) => {
+    console.log("You have access to update options");
+    });
 
 // Serve static files from the 'dist' directory
 app.use(express.static('public'))

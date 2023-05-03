@@ -6,6 +6,7 @@ const app = Vue.createApp({
       optionA: 0,
       optionB: 1,
       candidateLists: [],
+      token: '',
     }
   },
   mounted() {
@@ -37,8 +38,7 @@ const app = Vue.createApp({
             }
           })
           .then(data => {
-            const token = data.token;
-            //axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            this.token = data.token;
           })
           .catch(error => {
             console.error(error);
@@ -50,7 +50,8 @@ const app = Vue.createApp({
       fetch('/admin/updateOptions', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.token}`
           },
         body: JSON.stringify({ "optionA": this.optionA, "optionB": this.optionB })
       });

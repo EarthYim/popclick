@@ -1,0 +1,43 @@
+[
+    {
+        "id": "0",
+        "name": "Test A",
+        "api": "/api/voteA",
+        "img": "/img/testA.jpg",
+        "color": "red"
+    },
+    {
+        "id": "1",
+        "name": "Test B",
+        "api": "/api/voteB",
+        "img": "/img/testB.jpg",
+        "color": "blue"
+    },
+    {
+        "id": "2",
+        "name": "Candidate A"
+    },
+    {
+        "id": "3",
+        "name": "Candidate B"
+    },
+    {
+        "id": "4",
+        "name": "Candidate C"
+    },
+
+    {
+        "id": "5",
+        "name": "Candidate D"
+    },
+
+    {
+        "id": "6",
+        "name": "Candidate E"
+    },
+
+    {
+        "id": "7",
+        "name": "Candidate F"
+    }
+]
