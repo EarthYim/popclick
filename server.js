@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
-const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 //const vote = require('./vote')
