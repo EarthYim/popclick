@@ -1,5 +1,4 @@
 .DS_S*
-key/
 package-lock.json
 node_modules/*
 *.code-workspace
