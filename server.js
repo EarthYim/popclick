@@ -19,6 +19,7 @@ app.use(express.json());
 console.log(process.env.MONGODB_URI);
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost:27017/click_test', { useNewUrlParser: true });
 
 const voteSchema = new mongoose.Schema({
     timestamp: Date,
