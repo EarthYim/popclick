@@ -4,26 +4,45 @@
         <meta charset="utf-8">
         <title>PopClick</title>
         <link rel="stylesheet" href="css/style.css">
-        
     </head>
+
     <body>
         <div id="app">
-          <button @click="incrementCountA">Button A</button>
-          <button @click="incrementCountB">Button B</button>
-          <div>
-            Count A: {{ countA }}
+          <div class="container">
+
+            <div class="leftcol" @click="() => { incrementCountA(); togglepopA(); }" v-bind:style="{ background: 'linear-gradient(180deg, #ffff 0%, ' + colorA + ' 100%)' }">
+              <div class="countHead left" v-bind:style="{  color: colorA  }">
+                {{ totalCountA+countA }}
+              </div>
+              <div class="candidateName left">
+                {{  optionA_Name  }}
+              </div>
+              <div class="candidateimg left">
+                <img :src="imgA" alt="Candidate Left">
+              </div>
+              <!--button @click="incrementCountA">Button A</button-->
+
+              <img src="img/vs.png" alt="Versus Icon" class="center-logo">
+            </div>
+
+            <div class="rightcol" @click="() => { incrementCountB(); togglepopB(); }" v-bind:style="{ background: 'linear-gradient(180deg, #ffff 0%, ' + colorB + ' 100%)' }">
+              <div class="countHead right" v-bind:style="{  color: colorB  }">
+                  {{ totalCountB+countB }}
+              </div>
+              <div class="candidateName right">
+                {{  optionB_Name  }}
+              </div>
+              <div class="candidateimg right">
+                <img :src="imgB" alt="Candidate Right">
+              </div>
+              <!-- button @click="incrementCountB">Button B</button -->
+
+              <img src="img/logo.png" alt="Logo of the event" class="bottom-logo">
+            </div>
           </div>
-          <div>
-            Count B: {{ countB }}
-          </div>
-          <div>
-            Total Count A: {{ totalCountA }}
-          </div>
-          <div>
-            Total Count B: {{ totalCountB }}
-          </div>
+
         </div>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
         <script src="js/app.js"></script>
       </body>
 </html>

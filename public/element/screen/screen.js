@@ -54,7 +54,7 @@ const app = Vue.createApp({
   methods: {
     incrementCountA() {
       this.countA++
-      //console.log("A updated");
+      console.log("A updated");
     },
     incrementCountB() {
       this.countB++
@@ -62,7 +62,7 @@ const app = Vue.createApp({
     reportClicks() {
       if (this.countA != 0) {
         const dataA = { "number_of_count": this.countA };
-        //console.log(this.optionB_ID)
+        console.log(this.optionB_ID)
         fetch(this.apiA, {
           method: 'POST',
           body: JSON.stringify(dataA),
@@ -72,13 +72,13 @@ const app = Vue.createApp({
         })
           .then(response => {
             if (!response.ok) {
-              throw new Error('Network response was not ok')
+              throw new Error('Network response was not ok');
             }
             return response.json();
           })
           .then(data => console.log(data))
           .catch(error => console.error(error));
-        //console.log(`Button A clicks in last second: ${this.countA}`);
+        console.log(`Button A clicks in last second: ${this.countA}`);
       }
       if (this.countB != 0) {
         const dataB = { "number_of_count": this.countB };
@@ -92,26 +92,24 @@ const app = Vue.createApp({
           .then(response => response.json())
           .then(data => console.log(data))
           .catch(error => console.error(error));
-        //console.log(`Button B clicks in last second: ${this.countB}`);
+        console.log(`Button B clicks in last second: ${this.countB}`);
       }
-      // fetch('/api/score')
-      // .then(response => {
-      //   if (!response.ok) {
-      //     throw new Error('Network response was not ok');
-      //   }
-      //   return response.json();
-      // })
-      // .then(data => {
-      //   //console.log(`Count A: ${data[this.optionA_ID]}`);
-      //   this.totalCountA = data[this.optionA_ID];
-      //   //console.log(`Count B: ${data[this.optionB_ID]}`);
-      //   this.totalCountB = data[this.optionB_ID];
-      // })
-      // .catch(error => {
-      //   console.error(error);
-      // });
-      this.totalCountA += this.countA;
-      this.totalCountB += this.countB;
+      fetch('/api/score')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        //console.log(`Count A: ${data[this.optionA_ID]}`);
+        this.totalCountA = data[this.optionA_ID];
+        //console.log(`Count B: ${data[this.optionB_ID]}`);
+        this.totalCountB = data[this.optionB_ID];
+      })
+      .catch(error => {
+        console.error(error);
+      });
       this.countA = 0;
       this.countB = 0;
     },
@@ -157,7 +155,7 @@ const app = Vue.createApp({
     },
 
     togglepopB() {
-      //console.log("B clicked");
+      console.log("B clicked");
       this.imgB = this.imgpB;
       setTimeout(() => {
         this.imgB = this.imgnB;

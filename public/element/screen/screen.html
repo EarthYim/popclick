@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PopClick</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div id="app">
+          <div class="container">
+
+            <div class="leftcol"  v-bind:style="{ background: 'linear-gradient(180deg, #ffff 0%, ' + colorA + ' 100%)' }">
+              <div class="countHead left" v-bind:style="{  color: colorA  }">
+                {{ totalCountA }}
+              </div>
+              <div class="candidateName left">
+                {{  optionA_Name  }}
+              </div>
+              <!--button @click="incrementCountA">Button A</button-->
+
+              <img src="../../img/vs.png" alt="Versus Icon" class="center-logo">
+            </div>
+
+            <div class="rightcol" v-bind:style="{ background: 'linear-gradient(180deg, #ffff 0%, ' + colorB + ' 100%)' }">
+              <div class="countHead right" v-bind:style="{  color: colorB  }">
+                  {{ totalCountB }}
+              </div>
+              <div class="candidateName right">
+                {{  optionB_Name  }}
+              </div>
+              <!-- button @click="incrementCountB">Button B</button -->
+
+              <img src="../../img/logo.png" alt="Logo of the event" class="bottom-logo">
+            </div>
+          </div>
+
+        </div>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+        <script src="screen.js"></script>
+      </body>
+</html>

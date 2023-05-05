@@ -1,24 +1,24 @@
 @font-face {
     font-family: FCMinimalRegular;
-    src: url(../fonts/badstudentv4-regular.woff2);
+    src: url(../../fonts/badstudentv4-regular.woff2);
     font-weight: 300;
 }
 
 @font-face {
     font-family: FCMinimalMedium;
-    src: url(../fonts/badstudentv4-medium.woff2);
+    src: url(../../fonts/badstudentv4-medium.woff2);
     font-weight: 400;
 }
 
 @font-face {
     font-family: FCMinimalBold;
-    src: url(../fonts/badstudentv4-bold.woff2);
+    src: url(../../fonts/badstudentv4-bold.woff2);
     font-weight: 500;
 }
 
 @font-face {
     font-family: Adirek;
-    src: url(../fonts/Adirek-Slab-Lite-Bold.woff2);
+    src: url(../../fonts/Adirek-Slab-Lite-Bold.woff2);
     font-weight: 500;
 }
 
@@ -47,10 +47,10 @@
 }   
 
 .countHead {
-    font-size: 35px;
+    font-size: 135px;
     font-family: Adirek;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 .countHead.left {
@@ -62,7 +62,7 @@
 }
 
 .candidateName {
-    font-size: 11px;
+    font-size: 30px;
     font-family: FCMinimalRegular;
     text-align: center;
     margin-top: 1px;

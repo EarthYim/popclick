@@ -15,35 +15,53 @@
     },
     {
         "id": "2",
-        "name": "Candidate A",
-        "api": "/api/voteA"
-    },
+        "name": "พรรคก้าวไกล",
+        "api": "/api/voteA",
+        "sheeID": "#f38020",
+        "imgn": "img/2n.png",
+        "imgp": "img/2p.png"
+    },    
     {
         "id": "3",
-        "name": "Candidate B",
-        "api": "/api/voteB"
+        "name": "พรรคชาติพัฒนากล้า",
+        "api": "/api/voteB",
+        "sheeID": "#3aade3",
+        "imgn": "img/3n.png",
+        "imgp": "img/3p.png"
     },
     {
         "id": "4",
-        "name": "Candidate C",
-        "api": "/api/voteC"
+        "name": "พรรคชาติไทยพัฒนา",
+        "api": "/api/voteC",
+        "sheeID": "#f6adcc",
+        "imgn": "img/4n.png",
+        "imgp": "img/4p.png"
     },
 
     {
         "id": "5",
-        "name": "Candidate D",
-        "api": "/api/voteD"
+        "name": "พรรคไทยภักดี",
+        "api": "/api/voteD",
+        "sheeID": "#fed008",
+        "imgn": "img/5n.png",
+        "imgp": "img/5p.png"
     },
 
     {
         "id": "6",
-        "name": "Candidate E",
-        "api": "/api/voteE"
+        "name": "พรรคเพื่อไทย",
+        "api": "/api/voteE",
+        "sheeID": "#f05555",
+        "imgn": "img/6n.png",
+        "imgp": "img/6p.png"
     },
 
     {
         "id": "7",
-        "name": "Candidate F",
-        "api": "/api/voteF"
+        "name": "พรรคไทยสร้างไทย",
+        "api": "/api/voteF",
+        "sheeID": "#b392c3",
+        "imgn": "img/7n.png",
+        "imgp": "img/7p.png"
     }
 ]
