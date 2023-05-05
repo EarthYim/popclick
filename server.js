@@ -16,7 +16,7 @@ var cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/click_test', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const voteSchema = new mongoose.Schema({
     timestamp: Date,
