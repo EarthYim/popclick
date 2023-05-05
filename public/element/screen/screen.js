@@ -22,8 +22,8 @@ const app = Vue.createApp({
     }
   },
   mounted() {
-    setInterval(this.reportClicks, 1000);
-    setInterval(this.updateOptions, 1000); // change to 10000
+    //setInterval(this.reportClicks, 1000);
+    setInterval(this.updateOptions, 10000); // change to 10000
     fetch('/api/optionInfo', {
       method: 'GET'
     }) 
