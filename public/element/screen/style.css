@@ -29,7 +29,8 @@
 .container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    height: 400px;
+    width: 700px;
 }
 
 .leftcol {
@@ -47,10 +48,10 @@
 }   
 
 .countHead {
-    font-size: 135px;
+    font-size: 70px;
     font-family: Adirek;
     text-align: center;
-    margin-top: 350px;
+    margin-top: 150px;
     color: white;
 }
 
@@ -71,15 +72,15 @@
 
 .center-logo {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 35%;
+    left: 29%;
     transform: translate(-50%, -50%);
-    max-width: 60px;
+    max-width: 110px;
   }
 
   .bottom-logo {
     position: absolute;
-    bottom: 0;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -1%);   
     max-width: 80px;
