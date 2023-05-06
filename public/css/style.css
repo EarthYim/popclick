@@ -22,7 +22,9 @@
     font-weight: 500;
 }
 
-button { touch-action: manipulation; }
+* { 
+    touch-action: manipulation; 
+}
 
 .html, body  {
     background-color: white;
@@ -32,7 +34,7 @@ button { touch-action: manipulation; }
     display: flex;
     flex-direction: row;
     height: 100vh;
-    max-width: 95%;
+    max-width: 93%;
 }
 
 .leftcol {
@@ -94,12 +96,12 @@ button { touch-action: manipulation; }
     height: auto;
     width: 100%;
     margin-top: 200px;
-    left: 30%
+    left: 25%
   }
   
 .candidateimg img {
     display: block;
     position: relative;
     max-height: 100%;
-    width: 80px;
+    width: 120px;
 }
