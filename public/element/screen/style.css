@@ -29,8 +29,8 @@
 .container {
     display: flex;
     flex-direction: row;
-    height: 400px;
-    width: 700px;
+    height: 1080px;
+    width: 1920px;
 }
 
 .leftcol {
@@ -48,10 +48,10 @@
 }   
 
 .countHead {
-    font-size: 70px;
+    font-size: 260px;
     font-family: Adirek;
     text-align: center;
-    margin-top: 150px;
+    margin-top: 270px;
     color: white;
 }
 
@@ -71,11 +71,11 @@
 }
 
 .center-logo {
-    position: absolute;
-    top: 35%;
-    left: 29%;
-    transform: translate(-50%, -50%);
-    max-width: 110px;
+    position: relative;
+    top: -37%;
+    left: -13%;
+    /*transform: translate(-50%, -50%);*/
+    max-width: 250px;
   }
 
   .bottom-logo {
