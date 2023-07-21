@@ -1,7 +1,7 @@
 
 # Pop Candidate
 
-Pop Candidate is a [PopCat.click](popcat.click) inspired game/webapp 
+Pop Candidate is a [PopCat.click](https://popcat.click) inspired game/webapp 
 that is inteded as an audience participation medium for the debate event Candidate Classroom.
 
 ## About this game
