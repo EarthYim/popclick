@@ -25,6 +25,12 @@ As there are many possibility to pair each candidate together, the app is design
 can be selected and loaded thorugh the admin interface. Each client is checking in with the server every 1o second to aquire which candidate is active,
 then the client app can load the respective informations and APIs for each candidate that has been previously stored in JSON file.
 
+## Why is there credentials in this repo
+For those who curious to why I just included the credentials in this repo, I know it is not the best practice to include the keys and credentials in the public repo. However,
+these credentials is no longer in used and it is rather a single use token anyway. When I implimented this project, I was new to deployment strategy, even though I kknow that the
+credentials is not suppose to be in the repo, I simply did not have time to try to implement the simple lib that reads from env variable, and for a prkect with a very short life cycle.
+I just thought that it was not worth it. So, there it is, the reason there are credentials in this repo.
+
 
 ## About the Event
 The event **Candidate Classroom** was organize by a student activist organization BadStudent from Thailand for the upcoming 2023 Thai general election.
